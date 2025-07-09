@@ -12,7 +12,7 @@ function detectNewMessage() {
     lastMessageId = messageId;
 
     const modelLabel = document.querySelector('nav')?.innerText;
-    if (modelLabel && modelLabel.includes("GPT-4")) {
+    if (modelLabel && /GPT-4|4o/i.test(modelLabel)) {
       chrome.runtime.sendMessage({ type: "incrementCount" });
     }
   }

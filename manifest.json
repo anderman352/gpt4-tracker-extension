@@ -1,0 +1,25 @@
+
+{
+  "manifest_version": 3,
+  "name": "GPT-4 Auto Usage Tracker",
+  "version": "1.1",
+  "description": "Automatically tracks GPT-4 messages sent on chat.openai.com",
+  "permissions": ["storage", "notifications"],
+  "host_permissions": ["https://chatgpt.com/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "icon.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://chatgpt.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
